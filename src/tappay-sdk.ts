@@ -7,6 +7,12 @@ import {
   UpdateCardholderOptions,
   UpdateCardholderResponse,
 } from "./types/update-cardholder";
+import {
+  CheckAffiliateCodeByPrimeOptions,
+  CheckAffiliateCodeByCardTokenOptions,
+  CheckAffiliateCodeOptions,
+  CheckAffiliateCodeResponse,
+} from "./types/check-affiliate-code";
 
 export class TapPaySDK {
   private env: Environment;
@@ -67,7 +73,22 @@ export class TapPaySDK {
     return this.request(requestPath, requestBody);
   }
 
-  public checkAffiliateCode() {}
+  public checkAffiliateCode(
+    options: CheckAffiliateCodeByPrimeOptions
+  ): Promise<CheckAffiliateCodeResponse>;
+  public checkAffiliateCode(
+    options: CheckAffiliateCodeByCardTokenOptions
+  ): Promise<CheckAffiliateCodeResponse>;
+  public checkAffiliateCode(
+    options: CheckAffiliateCodeOptions
+  ): Promise<CheckAffiliateCodeResponse> {
+    const requestPath = "/tpc/affiliate-code/check";
+    const requestBody = Object.assign({}, options, {
+      partnerKey: this.partnerKey,
+    });
+
+    return this.request(requestPath, requestBody);
+  }
 
   private async request(
     path: string,
