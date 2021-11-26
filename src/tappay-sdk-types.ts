@@ -2,12 +2,12 @@ export enum Environment {
   /**
    * 正式
    */
-  Prod = "prod",
+  Prod = 'prod',
 
   /**
    * 測試
    */
-  Sandbox = "sandbox",
+  Sandbox = 'sandbox',
 }
 
 export interface ServerUrl {

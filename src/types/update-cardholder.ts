@@ -8,7 +8,7 @@ export interface UpdateCardholderOptions {
   /**
    * 姓名
    */
-  name?: number;
+  name?: string;
   /**
    * 手機號碼，可為 09 開頭的電話或是包含加號之 E.164 格式(“+886923456789”)
    */

@@ -4,14 +4,14 @@ interface BaseOptions {
   /**
    * 聯名卡群組
    */
-  affiliateCodeGroupName: string;
+  affiliateCodeGroupName?: string;
   /**
    * 聯名卡
    */
-  affiliateCodeName?: string;
+  affiliateCodeName: string;
 }
 
-export interface CheckAffiliateCodeByPrimeOptions extends BaseOptions {
+export interface PrimeOptions extends BaseOptions {
   /**
    * 用卡號所換得的字串
    *
@@ -20,7 +20,7 @@ export interface CheckAffiliateCodeByPrimeOptions extends BaseOptions {
   prime: string;
 }
 
-export interface CheckAffiliateCodeByCardTokenOptions extends BaseOptions {
+export interface CardTokenOptions extends BaseOptions {
   /**
    * 卡片識別字串
    *
@@ -35,11 +35,9 @@ export interface CheckAffiliateCodeByCardTokenOptions extends BaseOptions {
   cardKey: string;
 }
 
-export type CheckAffiliateCodeOptions =
-  | CheckAffiliateCodeByPrimeOptions
-  | CheckAffiliateCodeByCardTokenOptions;
+export type Options = PrimeOptions | CardTokenOptions;
 
-export interface CheckAffiliateCodeResponse extends ResponseBase {
+export interface Response extends ResponseBase {
   /**
    * 是否符合查詢條件
    *
