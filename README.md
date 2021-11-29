@@ -45,4 +45,4 @@ console.log(response);
 
 ## Examples
 
-see: [examples](/exmaples)
+see: [examples](https://github.com/ryan08100715/tappay-sdk/tree/main/examples)
