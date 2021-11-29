@@ -1,13 +1,24 @@
 import * as baseTypes from "./base";
 
 interface BaseOptions {
-  prime: string;
+  cardKey: string;
+  cardToken: string;
+  amount: number;
   currency: string;
-  threeDomainSecure?: boolean;
-  resultUrl?: baseTypes.ResultUrl;
-  cardholder: baseTypes.Cardholder & { bankMemberId?: string };
+  orderNumber?: string;
+  bankTransactionId?: string;
+  details: string;
   cardholderVerify?: baseTypes.CardholderVerify;
   kycVerificationMerchantId?: string;
+  instalment?: number;
+  delayCaptureInDays?: number;
+  threeDomainSecure?: boolean;
+  resultUrl?: baseTypes.ResultUrl;
+  cardCcv?: string;
+  redeem?: boolean;
+  additionalData?: string;
+  ccvPrime?: string;
+  deviceId?: string;
 }
 
 export interface MerchantIdOptions extends BaseOptions {
@@ -22,19 +33,23 @@ export type Options = MerchantIdOptions | MerchantGroupIdOptions;
 
 export interface Response extends baseTypes.ResponseBase {
   recTradeId: string;
-  orderId: string;
+  bankTransactionId: string;
+  bankOrderNumber: string;
+  amount: number;
   currency: string;
   authCode: string;
-  merchantId: string;
-  acquirer: string;
-  cardSecret: baseTypes.CardSecret;
   cardInfo: baseTypes.CardInfo;
-  millis: number;
+  orderNumber: string;
+  acquirer: string;
+  transactionTimeMillis: number;
   bankTransactionTime: baseTypes.BankTransactionTime;
   bankResultCode: string;
   bankResultMsg: string;
-  cardIdentifier: string;
   paymentUrl: string;
+  instalmentInfo: baseTypes.InstalmentInfo;
+  redeemInfo: baseTypes.RedeemInfo;
+  cardIdentifier: string;
+  merchantReferenceInfo: string;
   isRbaVerified: boolean;
-  transaction_method_details: baseTypes.TransactionMethodDetails;
+  transactionMethodDetails: baseTypes.TransactionMethodDetails;
 }

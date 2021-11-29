@@ -1,14 +1,5 @@
-import { ResponseBase } from "./base";
+import * as baseTypes from "./base";
 
-export interface RemoveCardOptions {
-  /**
-   * 卡片安全金鑰
-   */
-  cardKey: string;
-  /**
-   * 卡片識別字串
-   */
-  cardToken: string;
-}
+export type Options = baseTypes.CardSecret;
 
-export type RemoveCardResponse = ResponseBase;
+export type Response = baseTypes.ResponseBase;
