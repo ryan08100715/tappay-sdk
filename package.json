@@ -24,7 +24,7 @@
   "bugs": {
     "url": "https://github.com/ryan08100715/tappay-sdk/issues"
   },
-  "files": ["./dist"],
+  "files": ["dist"],
   "devDependencies": {
     "@types/jest": "^27.0.2",
     "@types/node": "^16.10.3",
