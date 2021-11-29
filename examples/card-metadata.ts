@@ -1,7 +1,7 @@
 import { TapPaySDK, types } from "../src";
 
 const tapPaySDK = new TapPaySDK({
-  env: types.Environment.Sandbox,
+  env: "sandbox",
   partnerKey: process.env.PARTNER_KEY!,
 });
 

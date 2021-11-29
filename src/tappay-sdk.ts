@@ -4,7 +4,7 @@ import snakecaseKeys from "snakecase-keys";
 import * as types from "./types";
 
 export class TapPaySDK {
-  private env: types.Environment;
+  private env: "prod" | "sandbox";
   private partnerKey: string;
 
   constructor(options: types.ConstructorOption) {
@@ -242,7 +242,7 @@ export class TapPaySDK {
    * 取得請求 host
    */
   private getServerUrl(): string {
-    if (this.env === types.Environment.Prod) {
+    if (this.env === "prod") {
       return "https://prod.tappaysdk.com";
     } else {
       return "https://sandbox.tappaysdk.com";

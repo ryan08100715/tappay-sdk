@@ -1,20 +1,8 @@
-export enum Environment {
-  /**
-   * 正式
-   */
-  Prod = "prod",
-
-  /**
-   * 測試
-   */
-  Sandbox = "sandbox",
-}
-
 export interface ConstructorOption {
   /**
    * SDK 環境
    */
-  env: Environment;
+  env: "prod" | "sandbox";
   /**
    * 綁定 Portal 帳戶的驗證金鑰
    */

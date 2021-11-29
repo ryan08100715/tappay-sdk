@@ -1,4 +1,4 @@
-export { Environment, ConstructorOption } from "./base";
+export { ConstructorOption } from "./base";
 export * as payByPrime from "./pay-by-prime";
 export * as payByCardToken from "./pay-by-card-token";
 export * as getBarcode from "./get-barcode";
