@@ -1,7 +1,7 @@
-import { TapPaySDK, Environment } from "../src";
+import { TapPaySDK, types } from "../src";
 
-const tappaySDK = new TapPaySDK({
-  env: Environment.Sandbox,
+const tapPaySDK = new TapPaySDK({
+  env: types.Environment.Sandbox,
   partnerKey: process.env.PARTNER_KEY!,
 });
 
@@ -16,10 +16,9 @@ async function main() {
       details: "測試商品",
     };
 
-    const response = await tappaySDK.payByCardToken(options);
+    const response = await tapPaySDK.payByCardToken(options);
     console.log(response);
   } catch (err) {
-    console.log("發生錯誤：");
     console.log(err);
   }
 }

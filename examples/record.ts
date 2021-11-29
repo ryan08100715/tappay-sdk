@@ -1,7 +1,7 @@
-import { TapPaySDK, Environment } from "../src";
+import { TapPaySDK, types } from "../src";
 
 const tappaySDK = new TapPaySDK({
-  env: Environment.Sandbox,
+  env: types.Environment.Sandbox,
   partnerKey: process.env.PARTNER_KEY!,
 });
 
@@ -19,7 +19,6 @@ async function main() {
     const response = await tappaySDK.record(options);
     console.log(response);
   } catch (err) {
-    console.log("發生錯誤：");
     console.log(err);
   }
 }

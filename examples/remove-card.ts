@@ -1,7 +1,7 @@
-import { TapPaySDK, Environment } from "../src";
+import { TapPaySDK, types } from "../src";
 
-const tappaySDK = new TapPaySDK({
-  env: Environment.Sandbox,
+const tapPaySDK = new TapPaySDK({
+  env: types.Environment.Sandbox,
   partnerKey: process.env.PARTNER_KEY!,
 });
 
@@ -12,10 +12,9 @@ async function main() {
       cardToken: "fdd2b2badc849b1f6e8f618a15f7d842e9986346aef33366be333079791d525d",
     };
 
-    const response = await tappaySDK.removeCard(options);
+    const response = await tapPaySDK.removeCard(options);
     console.log(response);
   } catch (err) {
-    console.log("發生錯誤：");
     console.log(err);
   }
 }

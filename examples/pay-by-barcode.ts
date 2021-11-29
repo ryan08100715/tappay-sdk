@@ -1,24 +1,27 @@
-import { TapPaySDK, Environment } from "../src";
+import { TapPaySDK, types } from "../src";
 
-const tappaySDK = new TapPaySDK({
-  env: Environment.Sandbox,
+const tapPaySDK = new TapPaySDK({
+  env: types.Environment.Sandbox,
   partnerKey: process.env.PARTNER_KEY!,
 });
 
 async function main() {
   try {
-    const options = {
-      barcode: "7LC2xjydgsYHLAb",
+    const options: any = {
+      barcode: "hq0ehbRYpeD13xb",
       merchantId: process.env.MERCHANT_ID!,
       amount: 100,
       currency: "TWD",
       details: "測試商品",
+      redeem: true,
+      merchantdiseDetails: {
+        noRebateAmount: 10,
+      },
     };
 
-    const response = await tappaySDK.payByBarcode(options);
+    const response = await tapPaySDK.payByBarcode(options);
     console.log(response);
   } catch (err) {
-    console.log("發生錯誤：");
     console.log(err);
   }
 }

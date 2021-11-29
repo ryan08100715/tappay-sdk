@@ -1,2 +1,2 @@
 export { TapPaySDK } from "./tappay-sdk";
-export * from "./types";
+export * as types from "./types";
